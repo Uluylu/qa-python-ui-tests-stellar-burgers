@@ -8,7 +8,7 @@ class OrderFeedPage(BasePage):
 
     @allure.step("Открыть страницу 'Лента заказов'")
     def open_order_feed_page(self):
-        self.driver.get(Urls.ORDER_FEED_URL)
+        self.open_url(Urls.ORDER_FEED_URL)
 
     @allure.step("Получить количество заказов 'Выполнено за всё время'")
     def get_total_orders_count(self):

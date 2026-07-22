@@ -7,6 +7,15 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    @allure.step("Переход по указанному URL")
+    def open_url(self, url):
+        self.driver.get(url)
+
+    @allure.step("Клик по элементу с помощью JavaScript")
+    def click_with_js(self, locator):
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].click();", element)
+
     @allure.step("Найти элемент с локатором: {locator}")
     def find_element(self, locator):
         return self.driver.find_element(*locator)

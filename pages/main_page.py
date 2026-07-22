@@ -8,16 +8,15 @@ class MainPage(BasePage):
 
     @allure.step("Кликнуть на 'Конструктор'")
     def click_constructor_button(self):
-        self.click_element(Locators.CONSTRUCTOR_BUTTON)
+        self.click_with_js(Locators.CONSTRUCTOR_BUTTON)
 
     @allure.step("Кликнуть на раздел 'Лента заказов'")
     def click_orders_feed_button(self):
-        element = self.find_element(Locators.ORDERS_FEED_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_with_js(Locators.ORDERS_FEED_BUTTON)
 
     @allure.step("Кликнуть на ингредиент")
     def click_ingredient_bun(self):
-        self.click_element(Locators.INGREDIENT_BUN)
+        self.click_with_js(Locators.INGREDIENT_BUN)
 
     @allure.step("Получить заголовок модального окна ингредиента")
     def get_modal_title(self):
@@ -25,8 +24,7 @@ class MainPage(BasePage):
 
     @allure.step("Закрыть всплывающее окно")
     def close_modal_window(self):
-        element = self.find_element(Locators.CLOSE_MODAL_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_with_js(Locators.CLOSE_MODAL_BUTTON)
         self.wait_for_invisibility(Locators.MODAL_OVERLAY)
 
     @allure.step("Проверить, что всплювающее окно закрылось")
